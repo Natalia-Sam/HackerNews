@@ -10,3 +10,6 @@ playwright-report/
 /package-lock.json/
 .vscode/
 .env
+playwright.config.ts
+README.md
+.github/workflows/
