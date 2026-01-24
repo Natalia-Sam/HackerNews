@@ -12,13 +12,18 @@ export default class ApiPage {
   }
 
   public async getApiPageUrl() {
-    const apiPageUrl = this.page.url();
-    return apiPageUrl;
+    return this.page.url();
   }
 
   public async getApiPageTitle() {
+    // to do //title[text()='HackerNews/API: Documentation and Samples for the Official HN API']
+    // use find or filter to get correct name
     const allPageTitles = await this.apiPageTitle.allTextContents();
-    const apiPageTitle = allPageTitles[0];
-    return apiPageTitle;
+    const apiPageTitleExample = allPageTitles.find((title) =>
+      title.includes("HackerNews/API"),
+    );
+    console.log(apiPageTitleExample);
+    // const apiPageTitle = allPageTitles[0];
+    return allPageTitles[0];
   }
 }

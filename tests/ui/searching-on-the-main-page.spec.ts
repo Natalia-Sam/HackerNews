@@ -1,5 +1,6 @@
 import { expect } from "@playwright/test";
 import { test } from "../../fixtures";
+import { normalizeText } from "../../utils/helpers";
 
 test.describe("Search on the main page", () => {
   let articleName: string;
@@ -23,7 +24,12 @@ test.describe("Search on the main page", () => {
     });
 
     await test.step("Perform search by article name", async () => {
-      await mainPage.searchInput.pressSequentially(articleName, { delay: 50 });
+      // Option 1: Simulate typing each character with a delay
+      // await mainPage.searchInput.pressSequentially(articleName, { delay: 50 });
+      // await mainPage.searchInput.press("Enter");
+
+      // Option 2: Fill the input directly and press Enter
+      await mainPage.searchInput.fill(articleName);
       await mainPage.searchInput.press("Enter");
     });
 
@@ -31,6 +37,7 @@ test.describe("Search on the main page", () => {
       const searchPageUrl = await searchPage.getSearchResultsUrl();
       expect(searchPageUrl).toContain("q=");
       expect(searchPageUrl).toContain("algolia.com");
+      expect(searchPageUrl).not.toBe(mainPage.getMainPageUrl());
     });
 
     await test.step("Verify that search results contain the article name", async () => {
@@ -39,21 +46,16 @@ test.describe("Search on the main page", () => {
       const articleWords = normalizedArticleName
         .split(/\s+/)
         .filter((word) => word.length > 0);
-      function normalizeText(text: string): string {
-        return text
-          .toLowerCase()
-          .replace(/[^\w\s]/g, "")
-          .trim();
-      }
       // console.log(articleWords);
+
       for (const [index, resultText] of searchResultsText.entries()) {
         const normalizedResult = normalizeText(resultText);
         const hasMatchingWord = articleWords.some((word) =>
-          normalizedResult.includes(word)
+          normalizedResult.includes(word),
         );
         expect(
           hasMatchingWord,
-          `Result ${index} should contain a word from articleName`
+          `Result ${index} should contain a word from articleName`,
         ).toBe(true);
       }
     });

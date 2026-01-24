@@ -15,17 +15,14 @@ export default class ApplyToYcPage {
 
   public async getApplyToYcTabTitle() {
     const allTitles = await this.applyToYcTabTitle.allTextContents();
-    const applyToYcTabTitle = allTitles[0];
-    return applyToYcTabTitle;
+    return allTitles[0];
   }
 
   public async getApplyToYcPageUrl() {
-    const applyToYcPageUrl = await this.page.url();
-    return applyToYcPageUrl;
+    return this.page.url();
   }
 
   public async getApplyToYcPageTitle() {
-    const applyToYcPageTitle = await this.applyToYcPageTitle.textContent();
-    return applyToYcPageTitle;
+    return this.applyToYcPageTitle.textContent();
   }
 }

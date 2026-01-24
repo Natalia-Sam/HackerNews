@@ -1,4 +1,5 @@
 import { type Page, type Locator } from "@playwright/test";
+import { PageType } from "./enums/data";
 
 export default class FooterPage {
   readonly page: Page;

@@ -9,7 +9,7 @@ export default class SecurityPage {
     this.page = page;
     this.securityTabTitle = this.page.locator("title");
     this.securityPageTitle = this.page.locator(
-      `//a[@href="http://www.ycombinator.com"]/following-sibling::b[1]`
+      `//a[@href="http://www.ycombinator.com"]/following-sibling::b[1]`,
     );
   }
 
@@ -19,7 +19,6 @@ export default class SecurityPage {
   }
 
   public async getSecurityPageTitle() {
-    const securityPageTitle = this.securityPageTitle.textContent();
-    return securityPageTitle;
+    return this.securityPageTitle.textContent();
   }
 }

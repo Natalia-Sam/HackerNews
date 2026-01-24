@@ -18,7 +18,7 @@ export default class MainPage {
 
   public async getArticleNameInTheList(numberOfArticleInTheList: number) {
     const articleLocator = this.articlesOnThePage.nth(numberOfArticleInTheList);
-    await articleLocator.waitFor({ state: "visible" });
+    // await articleLocator.waitFor({ state: "visible" });
     const articleName = await articleLocator.textContent();
     return articleName?.trim() ?? "Article not found";
   }

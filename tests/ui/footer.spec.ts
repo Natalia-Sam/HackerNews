@@ -1,7 +1,6 @@
 import { expect } from "@playwright/test";
 import { test } from "../../fixtures";
-import { Gunzip } from "node:zlib";
-import GuidelinesPage from "../../pages-ui/guidelines-page";
+import { PageType } from "../../pages-ui/enums/data";
 
 test.describe("Verify elements in the footer", () => {
   test.beforeEach(async ({ page }) => {
@@ -23,7 +22,7 @@ test.describe("Verify elements in the footer", () => {
     await test.step("Verify Guidelines page URL", async () => {
       const guidelinesPageUrl = await guidelinesPage.getGuidelinesPageUrl();
       expect(guidelinesPageUrl).toBe(
-        "https://news.ycombinator.com/newsguidelines.html"
+        "https://news.ycombinator.com/newsguidelines.html",
       );
     });
 
@@ -77,7 +76,7 @@ test.describe("Verify elements in the footer", () => {
       await footerPage.openApiPage();
       const tabTitle = await apiPage.apiTabTitle.textContent();
       expect(tabTitle).toBe(
-        "GitHub - HackerNews/API: Documentation and Samples for the Official HN API"
+        "GitHub - HackerNews/API: Documentation and Samples for the Official HN API",
       );
     });
 
@@ -105,7 +104,7 @@ test.describe("Verify elements in the footer", () => {
     await test.step("Verify Security page URL", async () => {
       const securityPageUrl = await securityPage.getSecurityPageUrl();
       expect(securityPageUrl).toBe(
-        "https://news.ycombinator.com/security.html"
+        "https://news.ycombinator.com/security.html",
       );
     });
 

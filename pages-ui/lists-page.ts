@@ -23,7 +23,6 @@ export default class ListsPage {
   }
 
   public async getListsPageTitle() {
-    const listsPageTitle = this.listsPageTitle.textContent();
-    return listsPageTitle;
+    return this.listsPageTitle.textContent();
   }
 }

@@ -9,6 +9,7 @@ import LegalPage from "./pages-ui/legal-page";
 import ApplyToYcPage from "./pages-ui/apply-to-yc-page";
 import MainPage from "./pages-ui/main-page";
 import SearchPage from "./pages-ui/search-page";
+import FooterPageRefined from "./pages-ui/footer-page-refined";
 
 export const test = base.extend<{
   footerPage: FooterPage;
@@ -21,6 +22,7 @@ export const test = base.extend<{
   applyToYcPage: ApplyToYcPage;
   mainPage: MainPage;
   searchPage: SearchPage;
+  footerPageRefined: FooterPageRefined;
 }>({
   /** @type { FooterPage } */
   footerPage: async ({ page }, use) => {
@@ -61,5 +63,9 @@ export const test = base.extend<{
   /** @type { SearchPage } */
   searchPage: async ({ page }, use) => {
     await use(new SearchPage(page));
+  },
+  /** @type { FooterPageRefined } */
+  footerPageRefined: async ({ page }, use) => {
+    await use(new FooterPageRefined(page));
   },
 });

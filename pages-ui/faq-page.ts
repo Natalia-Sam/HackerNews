@@ -9,17 +9,15 @@ export default class FaqPage {
     this.page = page;
     this.faqTabTitle = this.page.locator("title");
     this.faqPageTitle = this.page.locator(
-      `//a[@href="http://www.ycombinator.com"]/following-sibling::b[1]`
+      `//a[@href="http://www.ycombinator.com"]/following-sibling::b[1]`,
     );
   }
 
   public async getFaqPageUrl() {
-    const faqPageUrl = this.page.url();
-    return faqPageUrl;
+    return this.page.url();
   }
 
   public async getFaqPageTitle() {
-    const faqPageTitle = this.faqPageTitle.textContent();
-    return faqPageTitle;
+    return this.faqPageTitle.textContent();
   }
 }

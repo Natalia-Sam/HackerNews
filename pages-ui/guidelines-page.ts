@@ -9,13 +9,13 @@ export default class GuidelinesPage {
     this.page = page;
     this.guidelinesTabTitle = this.page.locator("title");
     this.guidelinesPageTitle = this.page.locator(
-      `//a[@href="http://www.ycombinator.com"]/following-sibling::b[1]`
+      `//a[@href="http://www.ycombinator.com"]/following-sibling::b[1]`,
     );
   }
 
-  // public async getGuidelinesTabTitle() {
-  //     await this.guidelinesTabTitle.textContent();
-  // }
+  public async getGuidelinesTabTitle() {
+    return this.guidelinesTabTitle.textContent();
+  }
 
   public async getGuidelinesPageUrl() {
     const guidelinesPageUrl = this.page.url();
@@ -23,7 +23,6 @@ export default class GuidelinesPage {
   }
 
   public async getGuidelinesPageTitle() {
-    const guidelinesPageTitle = this.guidelinesPageTitle.textContent();
-    return guidelinesPageTitle;
+    return this.guidelinesPageTitle.textContent();
   }
 }
