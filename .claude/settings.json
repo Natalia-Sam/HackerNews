@@ -1,0 +1,35 @@
+{
+  "claudeMdExcludes": ["../../CLAUDE.md"],
+  "permissions": {
+    "allow": [
+      "mcp__atlassian-jira-dc__jira_getIssue",
+      "mcp__atlassian-jira-dc__jira_getIssueComments",
+      "mcp__atlassian-jira-dc__jira_getTransitions",
+      "mcp__atlassian-jira-dc__jira_searchIssues",
+      "mcp__atlassian-confluence-dc__confluence_getContent",
+      "mcp__atlassian-confluence-dc__confluence_searchContent",
+      "mcp__atlassian-confluence-dc__confluence_searchSpace",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getCommits",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getInboxPullRequests",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getPR_CommentsAndAction",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getProject",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getProjects",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getPullRequest",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getPullRequestChanges",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getPullRequestDiff",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getPullRequests",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getRepositories",
+      "mcp__atlassian-bitbucket-dc__bitbucket_getRepository",
+      "Bash(npx @nc_e2e/reportportal-library generate-ids*)",
+      "Bash(npx @nc_e2e/reportportal-library validate*)"
+    ]
+  },
+  "extraKnownMarketplaces": {
+    "namecheap-claude-code": {
+      "source": {
+        "source": "git",
+        "url": "git@git.namecheap.net:spac/sharedconfig.claudecode.git"
+      }
+    }
+  }
+}
